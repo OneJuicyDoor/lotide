@@ -1,31 +1,23 @@
 
-const assertEqual = function(actual, expected) {
-    if (actual === expected) {
-      console.log(`assertion Passed💚💚💚:  ${actual}  ===  ${expected}`);
-    }
-    if (actual !== expected) {
-      console.log(`assertion Failed🚩🚩🚩:  ${actual}  !==  ${expected}`);
-    }
-  
-  };
-  function eqArrays(arr1, arr2) {
-   if(arr1.length != arr2.length) {
-    return false
-   }
-    for (let i = 0; i < arr1.length; i++) {
+const eqArrays = function(arr1, arr2) { 
+      for (let i = 0; i < arr1.length; i++) {
    if (arr1[i] !== arr2[i]) {
-        return false;
+        console.log(`assertion Failed🚩🚩🚩:  ${arr1}  !==  ${arr2}`);
+        return(`assertion Failed🚩🚩🚩:  ${arr1}  !==  ${arr2}`);
     }
- }
-  
-    return true;
+  } 
+if(arr1.length != arr2.length) {
+    console.log(`assertion Failed🚩🚩🚩:  ${arr1}  !==  ${arr2}`);
+    return(`assertion Failed🚩🚩🚩:  ${arr1}  !==  ${arr2}`);
   }
-  
+  else {
+    console.log(`assertion Passed💚💚💚:  ${arr1}  ===  ${arr2}`);
+    return(`assertion Passed💚💚💚:  ${arr1}  ===  ${arr2}`);
+  }
+}
+
   //test
-  assertEqual("lighthouse Labs", "Bootcamp");
-  assertEqual(1, 1);
-  assertEqual("one", 1);
-  assertEqual("beebs", "beebs");
-  assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-  assertEqual(eqArrays([5, 2, 3], [1, 2, 5]), true);
-  assertEqual(eqArrays([1, 2, 3], [1, 2, 3, 6]), true);
+
+eqArrays([1, 2, 3], [1, 2, 3, 6])
+eqArrays([1, 2, 3], [1, 2, 5,])
+eqArrays([1, 2, 3], [1, 2, 3,])
