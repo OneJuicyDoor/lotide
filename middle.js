@@ -12,7 +12,7 @@ function middle(array) {
         firstMid = (array.length / 2) + 0.5
         theMiddle.push(firstMid)
     }
-  console.log(theMiddle)
+  return(theMiddle)
 }
 
 module.exports = middle;
