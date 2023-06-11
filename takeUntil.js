@@ -1,24 +1,18 @@
 const takeUntil = function(array, callback) {
   const results = [];
+
   for (let item of array) {
+    // Check if the callback function returns true for the current item
     if (callback(item)) {
+      // If true, return the results array
       return results;
     }
+
+    // If false, push it  to the results array
     results.push(item);
   }
+
   return results;
 };
-  
-const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
-const results1 = takeUntil(data1, x => x < 0);
-console.log(results1);
-  
-console.log('---');
-  
-const data2 = ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Redwood"];
-const results2 = takeUntil(data2, x => x === ',');
-console.log(results2);
-  
-const data3 = ["I've", "beenthere", "to", "Hollywoodbaaabbbyyy", ",", "I've", "been", "to", "Redwood"];
-const results3 = takeUntil(data3, x => x === ',');
-console.log(results3);
+
+module.exports = takeUntil;

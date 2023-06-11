@@ -1,13 +1,13 @@
 function without(arr1, arr2) {
-    var result = [];
-    
-    for (var i = 0; i < arr1.length; i++) {
-      if (!arr2.includes(arr1[i])) {
-        result.push(arr1[i]);
-      }
+  let result = [];
+    //Look through each item in the array, if it appears in the other array dont push it to result
+  for (let i = 0; i < arr1.length; i++) {
+    if (!arr2.includes(arr1[i])) {
+      result.push(arr1[i]);
     }
-    
-    console.log (result)
   }
+    
+  return (result);
+}
   
-  without([1,2,3,4,5], [1,3,5,6]);
+module.exports = without;

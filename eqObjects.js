@@ -1,47 +1,36 @@
+const eqObjects = function(object1, object2) {
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
 
-  const eqObjects = function(object1, object2) {
-    const keys1 = Object.keys(object1);
-    const keys2 = Object.keys(object2);
-    
-    if (keys1.length !== keys2.length) {
-      console.log(`assertion Failed🚩🚩🚩:  ${object1}  !==  ${object2}`);
-      return false;
-    }
-    
-    for (let i = 0; i < keys1.length; i++) {
-      const key = keys1[i];
-      
-      if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-        if (!eqArrays(object1[key], object2[key])) {
-          console.log(`assertion Failed🚩🚩🚩:  ${object1}  !==  ${object2}`);
-          return false;
-        }
-      } else if (object1[key] !== object2[key]) {
-        console.log(`assertion Failed🚩🚩🚩:  ${object1}  !==  ${object2}`);
+  // Check if the objects have different number of keys
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  // loop through each key
+  for (let i = 0; i < keys1.length; i++) {
+    const key = keys1[i];
+
+    // Check if the current key's value is an array in both objects
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      // If the arrays are not equal return false
+      if (!eqArrays(object1[key], object2[key])) {
         return false;
       }
-    }
-    
-    console.log(`assertion Passed💚💚💚:  ${object1}  ===  ${object2}`);
-    return true;
-  }
-  
-  function eqArrays(arr1, arr2) {
-    if (arr1.length !== arr2.length) {
+    } else if (object1[key] !== object2[key]) {
+      // If the values are not equal return false
       return false;
     }
-    
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      }
-    }
-    
-    return true;
   }
+
+  // if everything is equal return true
+  return true;
+}
+
+module.exports = eqObjects;
+
   
-  
-  const shirtObject = { color: "red", size: "medium" };
+ /* const shirtObject = { color: "red", size: "medium" };
   const anotherShirtObject = { size: "medium", color: "red" };
   eqObjects(shirtObject, anotherShirtObject);
   
@@ -52,6 +41,6 @@
   eqObjects("hurble", "hurble");
   
   const houseObject = { color: "red", size: "medium", bedsBaths: [1, 2] };
-  const anotherHouseObject = { size: "medium", color: "red", bedsBaths: [1, 3] };
+  const anotherHouseObject = { size: "medium", color: "red", bedsBaths: [1, 2] };
   eqObjects(houseObject, anotherHouseObject);
-  
+  */
