@@ -3,7 +3,6 @@ const tail = require('./tail');
 const middle = require('./middle');
 const flattenArray = require('./flatten');
 const countLetters = require('./countLetters')
-const assetEqual = require('./assertEqual')
 const countOnly = require('./countOnly')
 const eqArrays = require('./eqArrays')
 const eqObjects = require('./eqObjects')
@@ -19,7 +18,6 @@ module.exports = {
   middle,
   flattenArray,
   countLetters,
-  assetEqual,
   eqObjects,
   countOnly,
   eqArrays,
